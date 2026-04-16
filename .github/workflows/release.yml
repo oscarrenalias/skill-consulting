@@ -41,7 +41,7 @@ jobs:
 
       - name: Build package
         run: |
-          zip -r "skill-consulting-${{ steps.version.outputs.version }}.zip" \
+          cd .apm/skills && zip -r "../../skill-consulting-${{ steps.version.outputs.version }}.zip" \
             consulting-architecture-operating-model-review \
             consulting-executive-briefing \
             consulting-problem-framing
