@@ -23,10 +23,10 @@ Handles cases where no clear recommendation is possible, producing a deferred re
 
 **With apm:**
 ```
-apm install skill-consulting
+apm install oscarrenalias/skill-consulting#v0.1.1
 ```
 
-**Without apm:** download the zip from the [latest release](../../releases/latest) and extract it into your `.claude/` or `.agents/` folder:
+**Without apm:** download the zip from the [latest release](https://github.com/oscarrenalias/skill-consulting/releases) and extract it into your `.claude/` or `.agents/` folder:
 
 ```
 unzip skill-consulting-<version>.zip -d ~/.claude/
