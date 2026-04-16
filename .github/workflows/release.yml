@@ -1,0 +1,67 @@
+name: Release
+
+on:
+  push:
+    paths-ignore:
+      - 'README.md'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Compute new version
+        id: version
+        run: |
+          current=$(grep '^version:' apm.yml | awk '{print $2}')
+          IFS='.' read -r major minor patch <<< "$current"
+          patch=$((patch + 1))
+          new="${major}.${minor}.${patch}"
+          echo "version=${new}" >> "$GITHUB_OUTPUT"
+          echo "tag=v${new}" >> "$GITHUB_OUTPUT"
+
+      - name: Update apm.yml
+        run: |
+          sed -i "s/^version: .*/version: ${{ steps.version.outputs.version }}/" apm.yml
+
+      - name: Commit and tag
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add apm.yml
+          git commit -m "chore: release ${{ steps.version.outputs.tag }} [skip ci]"
+          git tag "${{ steps.version.outputs.tag }}"
+          git push origin HEAD "${{ steps.version.outputs.tag }}"
+
+      - name: Build package
+        run: |
+          zip -r "skill-consulting-${{ steps.version.outputs.version }}.zip" \
+            consulting-architecture-operating-model-review \
+            consulting-executive-briefing \
+            consulting-problem-framing
+
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: skill-consulting ${{ steps.version.outputs.version }}
+          body: |
+            ## Installation
+
+            **With apm:**
+            ```
+            apm install skill-consulting
+            ```
+
+            **Without apm:** download the zip below and extract it into your `.claude/` or `.agents/` folder.
+
+            ```
+            unzip skill-consulting-${{ steps.version.outputs.version }}.zip -d ~/.claude/
+            ```
+          files: skill-consulting-${{ steps.version.outputs.version }}.zip

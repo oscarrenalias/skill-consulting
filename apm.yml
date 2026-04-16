@@ -1,0 +1,8 @@
+name: skill-consulting
+version: 0.1.0
+description: Consulting skills for agent
+author: Renalias, Oscar
+dependencies:
+  apm: []
+  mcp: []
+scripts: {}
