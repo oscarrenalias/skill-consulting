@@ -44,7 +44,10 @@ jobs:
           cd .apm/skills && zip -r "../../skill-consulting-${{ steps.version.outputs.version }}.zip" \
             consulting-architecture-operating-model-review \
             consulting-executive-briefing \
-            consulting-problem-framing
+            consulting-problem-framing \
+            humanize-text
+          cd ../agents && zip -r "../../skill-consulting-${{ steps.version.outputs.version }}.zip" \
+            humanize-text.md
 
       - name: Create GitHub release
         uses: softprops/action-gh-release@v2
