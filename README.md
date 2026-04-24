@@ -3,10 +3,11 @@
 A set of Claude Code skills and specialized agents for consulting work, covering:
 
 
-- problem framing *(skill)* – helps structure vague statements into structured problems
-- architecture and operating model review *(skill)* - supports reviews of architecture and op models
-- executive briefing *(skill)* – suggests executive-ready recommendations out of vague inputs, useful in cases where not enough quantitative or qualitative data exists
-- "text humanization" *(skill, agent)* – reviews LLM-generated or LLM-assisted texts and replaces typical LLM words and grammatical structures with simpler and _more human_ versions. Provided both as a skill as well as an agent
+- [problem framing *(skill)*](.apm/skills/consulting-problem-framing) – helps structure vague statements into structured problems
+- [architecture and operating model review *(skill)*](.apm/skills/consulting-architecture-operating-model-review/) - supports reviews of architecture and op models
+- [executive briefing *(skill)*](.apm/skills/consulting-executive-briefing/) – suggests executive-ready recommendations out of vague inputs, useful in cases where not enough quantitative or qualitative data exists
+- [text humanization *(skill)*](.apm/skills/humanize-text/) – reviews LLM-generated or LLM-assisted texts and replaces typical LLM words and grammatical structures with simpler and _more human_ versions.
+- [text humanization *(agent)*](.apm/agents/humanize-text.md) – Can be used when reviewing very large text or documents, as the separate sub-agent will use its own context instead of polluting the main one
 
 ## Skills
 
