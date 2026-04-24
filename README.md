@@ -1,6 +1,12 @@
 # skill-consulting
 
-A set of Claude Code skills for consulting work, covering problem framing, architecture and operating model review, executive briefing, and LLM-voice cleanup for written deliverables.
+A set of Claude Code skills and specialized agents for consulting work, covering:
+
+
+- problem framing *(skill)* – helps structure vague statements into structured problems
+- architecture and operating model review *(skill)* - supports reviews of architecture and op models
+- executive briefing *(skill)* – suggests executive-ready recommendations out of vague inputs, useful in cases where not enough quantitative or qualitative data exists
+- "text humanization" *(skill, agent)* – reviews LLM-generated or LLM-assisted texts and replaces typical LLM words and grammatical structures with simpler and _more human_ versions. Provided both as a skill as well as an agent
 
 ## Skills
 
@@ -33,8 +39,10 @@ Long-document variant of the humanize-text skill. Accepts document text or a fil
 
 **With apm:**
 ```
-apm install oscarrenalias/skill-consulting#v0.1.1
+apm install oscarrenalias/skill-consulting#vX.Y.Z
 ```
+
+Replace X.Y.Z with the appropriate current version (see the Release tab in this repository)
 
 **Without apm:** download the zip from the [latest release](https://github.com/oscarrenalias/skill-consulting/releases) and extract it into your `.claude/` or `.agents/` folder:
 
