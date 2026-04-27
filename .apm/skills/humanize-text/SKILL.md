@@ -57,7 +57,7 @@ Words that cluster in LLM text and rarely in human prose on the same topic:
 - showcase, underscore, bolster, garner, encompass, enhance
 - robust, seamless, pivotal, comprehensive, holistic, multifaceted
 - intricate, nuanced, dynamic, vibrant, enduring, vital, meticulous
-- tapestry, realm, journey, ecosystem, landscape, testament
+- tapestry, realm, journey, ecosystem, landscape, testament, interplay, intricacies, framework
 - nestled, in the heart of, boasts a, breathtaking, rich
 - moreover, furthermore, additionally, align with
 - game-changer, cutting-edge, transformative, revolutionary
@@ -153,6 +153,18 @@ Always remove. These are unambiguous AI fingerprints and have no business in a h
 
 ### 18. Curly versus straight quotes
 LLM output mixes curly typographic quotes (`"smart"` and `'smart'`) with straight ASCII (`"` and `'`), often inconsistently within the same paragraph. Inconsistency is the actual tell — match whichever convention the rest of the document uses, and apply it throughout. Business and technical writing usually use straight; typeset prose usually uses curly.
+
+### 19. Editorial participle intrusion
+LLMs append a present-participle phrase to a factual clause to declare its significance, when the underlying clause already states the fact:
+- "The team adopted Kafka, highlighting their commitment to scalability."
+- "Costs dropped 12%, underscoring the efficiency gains."
+- "The board approved the proposal, reflecting growing alignment."
+- "Revenue grew in Q3, demonstrating the strategy's viability."
+
+Common participles to watch for: *highlighting*, *underscoring*, *reflecting*, *demonstrating*, *symbolising*, *signalling*, *emphasising*, *showcasing*. Delete the participle phrase. If it carries a real second claim, split into two sentences and state it directly; if it carries only editorial significance, drop it.
+
+### 20. Elegant variation
+LLMs cycle synonyms for the same entity within a single passage to avoid repeating a noun: "the platform" → "the solution" → "this system" → "the technology" → "the offering", all referring to the same product. Humans repeat the noun or use a pronoun. Fix: pick one name and use it; use pronouns where natural; vary only when the variation itself does work (a deliberate shift in framing or scope).
 
 ## Workflow
 Follow this sequence.
@@ -250,4 +262,7 @@ When in doubt, leave the author's phrasing alone. It is better to under-edit tha
 - Em-dash count reduced from one to zero.
 
 ## Sources
-The anti-pattern catalogue draws on common practitioner observations and on the English Wikipedia community essay [Wikipedia:Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), which catalogues lexical, syntactic, formatting, and citation tells of LLM-generated text from a detection-side perspective. Several categories in this skill — copulative avoidance, vague attributions, significance and legacy phrasing, knowledge-cutoff leaks, and curly/straight quote inconsistency — are adapted from that essay for a writing-side use case.
+The anti-pattern catalogue draws on common practitioner observations and on two third-party sources, both adapted for a writing-side use case rather than detection or fiction craft:
+
+- The English Wikipedia community essay [Wikipedia:Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), which catalogues lexical, syntactic, formatting, and citation tells of LLM-generated text from an encyclopedic-detection perspective. Categories adapted from it: copulative avoidance, vague attributions, significance and legacy phrasing, knowledge-cutoff leaks, and curly/straight quote inconsistency.
+- A long-form-writing guide on AI-generated prose tells, [available on Google Docs](https://docs.google.com/document/d/1uC9tBgfNZJytzLpg6MGk5mTfgJNbEK-h1hMLncQ5Mho/edit). The guide is primarily aimed at narrative fiction craft; most of its catalogue (gesture choreography, intimacy metaphors, sensory language, dialogue tags) does not apply to consulting deliverables, but two categories translate well: editorial participle intrusion and elegant variation.

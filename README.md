@@ -29,7 +29,7 @@ Handles cases where no clear recommendation is possible, producing a deferred re
 ### humanize-text
 Rewrites text to remove the recognisable patterns of LLM-generated writing — contrast constructions ("it's not X, it's Y"), signal vocabulary (delve, leverage, robust, seamless), throat-clearing openings, uplift closers, bullet inflation, bold-salad, copulative avoidance ("serves as", "represents"), vague attributions ("industry reports show"), significance phrasing ("is a testament to"), knowledge-cutoff leaks, and curly/straight quote inconsistency — while preserving meaning, facts, names, and the author's voice.
 
-The anti-pattern catalogue draws on practitioner observation and on the English Wikipedia essay [Wikipedia:Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), adapted for a writing-side use case rather than detection.
+The anti-pattern catalogue draws on practitioner observation, on the English Wikipedia essay [Wikipedia:Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), and on a long-form-writing guide on AI-generated prose tells [available on Google Docs](https://docs.google.com/document/d/1uC9tBgfNZJytzLpg6MGk5mTfgJNbEK-h1hMLncQ5Mho/edit), all adapted for a writing-side use case rather than detection or fiction craft.
 
 Useful on any consulting deliverable drafted or heavily assisted by an LLM: briefs, framings, review output, discovery notes. Ships with a companion `humanize-text` agent for long documents, which applies the same rules in an isolated context and returns only the rewritten text.
 
