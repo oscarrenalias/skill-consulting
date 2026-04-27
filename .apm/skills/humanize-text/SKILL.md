@@ -54,12 +54,15 @@ These sound persuasive but usually collapse into a direct claim. Rewrite as the 
 Words that cluster in LLM text and rarely in human prose on the same topic:
 - delve, dive into, navigate, unpack, unlock
 - leverage, harness, foster, empower
+- showcase, underscore, bolster, garner, encompass, enhance
 - robust, seamless, pivotal, comprehensive, holistic, multifaceted
-- tapestry, realm, journey, ecosystem, landscape
-- intricate, nuanced, dynamic, vibrant
+- intricate, nuanced, dynamic, vibrant, enduring, vital, meticulous
+- tapestry, realm, journey, ecosystem, landscape, testament
+- nestled, in the heart of, boasts a, breathtaking, rich
+- moreover, furthermore, additionally, align with
 - game-changer, cutting-edge, transformative, revolutionary
 
-Replace with concrete language. "Leverage our data" → "use our data". "A robust framework" → name what makes it robust, or drop the adjective.
+Replace with concrete language. "Leverage our data" → "use our data". "A robust framework" → name what makes it robust, or drop the adjective. Discourse markers ("moreover", "furthermore", "additionally") can almost always be deleted; the next sentence's relationship to the previous one is usually self-evident from context.
 
 ### 3. Throat-clearing openings
 - "It's worth noting that..."
@@ -112,6 +115,45 @@ Bolding key terms every other sentence. If everything is bold, nothing is. Keep 
 ### 13. Closing pleasantries
 "I hope this helps." "Let me know if you have any questions." "Happy to elaborate." Remove from formal outputs.
 
+### 14. Copulative avoidance
+LLMs replace plain "is/are/has" with elevated alternatives that add no meaning:
+- "X serves as Y" → "X is Y"
+- "X stands as Y" → "X is Y"
+- "X represents Y" → "X is Y" (when no actual representation is meant)
+- "X marks a turning point" → "X is a turning point", or restate concretely
+- "X boasts Y" → "X has Y"
+- "X features Y" → "X has Y"
+- "X offers Y" → "X has Y" or "X provides Y"
+
+Use the plain verb unless the substitute carries genuine extra meaning. "Stands as a reminder" almost never does.
+
+### 15. Vague attributions
+"Industry reports show...", "Observers have noted...", "Experts argue...", "Several sources indicate...", "It is widely accepted that...". If the source is real, name it. If it cannot be named, the claim is too weak to keep.
+
+### 16. Significance and legacy phrasing
+- "is a testament to"
+- "underscores its importance"
+- "marks a shift" / "represents a turning point"
+- "stands as a reminder"
+- "leaves an indelible mark"
+- "vital / crucial / pivotal role"
+- "deeply rooted"
+
+These manufacture importance the underlying fact does not require. Drop the framing or restate as the plain fact. "The project ran for ten years and shipped to forty markets" beats "stands as a testament to the team's enduring commitment."
+
+### 17. Knowledge-cutoff and prompt-leak phrases
+LLM-specific tells from incomplete redaction of the model's voice:
+- "Up to my last training update..."
+- "Based on the information available to me..."
+- "Here is your draft of..."
+- "I cannot create promotional content..."
+- "As an AI language model..."
+
+Always remove. These are unambiguous AI fingerprints and have no business in a human-authored deliverable.
+
+### 18. Curly versus straight quotes
+LLM output mixes curly typographic quotes (`"smart"` and `'smart'`) with straight ASCII (`"` and `'`), often inconsistently within the same paragraph. Inconsistency is the actual tell — match whichever convention the rest of the document uses, and apply it throughout. Business and technical writing usually use straight; typeset prose usually uses curly.
+
 ## Workflow
 Follow this sequence.
 
@@ -136,10 +178,13 @@ Cut sentence-start "Crucially" / "Importantly" / "Notably". Reduce hedge stacks.
 ### 7. Check em-dash count
 At most one per paragraph.
 
-### 8. Preserve what matters
+### 8. Normalise typography
+Make quotes and apostrophes consistent throughout. If the document mixes curly and straight, pick one and apply it uniformly.
+
+### 9. Preserve what matters
 Keep facts, numbers, names, technical terms, structural elements, and the author's intent. Do not rephrase direct quotes.
 
-### 9. Read the result aloud
+### 10. Read the result aloud
 If a sentence still sounds like a press release or a policy document written by committee, rewrite it again.
 
 ## Output format
@@ -162,6 +207,9 @@ Rewritten text should:
 - preserve all facts, numbers, names, and domain terms
 - contain at most one em dash per paragraph
 - contain no words from the signal vocabulary list, unless the input used them in a technical sense
+- use plain "is/are/has" rather than "serves as / stands as / represents / boasts" unless the substitute carries genuine extra meaning
+- contain no knowledge-cutoff or prompt-leak phrases
+- use a single, consistent quote and apostrophe style throughout
 - begin with content, not with a throat-clearing opener
 - end on a plain statement, not on uplift
 
@@ -173,6 +221,8 @@ Avoid:
 - flattening the author's voice by over-editing already-human prose
 - swapping one filler phrase for a different filler phrase
 - adding "I hope this is clearer" style meta-commentary to the rewritten text
+- inventing or substituting citations, sources, quotes, or attributions to replace vague ones — if a source cannot be verified, remove the claim instead
+- replacing a vague attribution ("experts argue") with a fabricated specific one
 
 ## Style
 The rewritten output matches the register of the input. A formal brief stays formal; a casual note stays casual. Only the LLM tells are removed.
@@ -183,16 +233,21 @@ When in doubt, leave the author's phrasing alone. It is better to under-edit tha
 
 **Before:**
 
-> In today's rapidly evolving business landscape, it's worth noting that organisations must navigate an increasingly intricate set of challenges. This isn't just about adopting new technology — it's about fundamentally transforming how we think about value delivery. By leveraging robust frameworks and fostering a culture of innovation, leaders can unlock unprecedented opportunities. Crucially, the journey ahead requires a holistic approach. I hope this provides a useful starting point for your strategic discussions.
+> In today's rapidly evolving business landscape, it's worth noting that organisations must navigate an increasingly intricate set of challenges. This isn't just about adopting new technology — it's about fundamentally transforming how we think about value delivery. Industry reports show that the cloud platform serves as a cornerstone of this shift, and experts argue it represents a pivotal turning point for the sector. Moreover, by leveraging robust frameworks and fostering a culture of innovation, leaders can unlock unprecedented opportunities. Crucially, the journey ahead requires a holistic approach. I hope this provides a useful starting point for your strategic discussions.
 
 **After:**
 
-> Leaders face a harder set of challenges than a few years ago. The shift required is not technology adoption; it is a change in how the business defines and measures value delivery. The next step is to agree where value currently leaks, which capabilities to build in-house, and which to source externally.
+> Leaders face a harder set of challenges than a few years ago. The shift required is not technology adoption; it is a change in how the business defines and measures value delivery. The cloud platform is central to that shift. The next step is to agree where value currently leaks, which capabilities to build in-house, and which to source externally.
 
 **What was applied:**
 - Throat-clearing opener removed ("In today's rapidly evolving business landscape, it's worth noting that").
 - Contrast construction collapsed ("This isn't just about X — it's about Y" → direct claim).
-- Signal vocabulary cut (*navigate*, *intricate*, *leveraging*, *robust*, *fostering*, *unlock*, *unprecedented*, *journey*, *holistic*). Where the underlying claim was content-free filler, the sentence was replaced with substantive next-step guidance rather than reworded empty phrasing.
+- Vague attributions removed ("Industry reports show...", "experts argue..."). The underlying claim was kept only to the extent it carried real content; the unverifiable framing was dropped, not replaced with a fabricated specific source.
+- Copulative avoidance fixed ("serves as a cornerstone" → "is central to"; "represents a pivotal turning point" dropped as content-free).
+- Signal vocabulary cut (*navigate*, *intricate*, *leveraging*, *robust*, *fostering*, *unlock*, *unprecedented*, *journey*, *holistic*, *moreover*, *pivotal*). Where the underlying claim was filler, the sentence was replaced with substantive next-step guidance rather than reworded empty phrasing.
 - Sentence-start adverb removed ("Crucially").
 - Closing pleasantry removed ("I hope this provides a useful starting point").
 - Em-dash count reduced from one to zero.
+
+## Sources
+The anti-pattern catalogue draws on common practitioner observations and on the English Wikipedia community essay [Wikipedia:Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), which catalogues lexical, syntactic, formatting, and citation tells of LLM-generated text from a detection-side perspective. Several categories in this skill — copulative avoidance, vague attributions, significance and legacy phrasing, knowledge-cutoff leaks, and curly/straight quote inconsistency — are adapted from that essay for a writing-side use case.
