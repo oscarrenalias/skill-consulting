@@ -3,11 +3,12 @@
 A set of Claude Code skills and specialized agents for consulting work, covering:
 
 
-- [problem framing *(skill)*](.apm/skills/consulting-problem-framing) – helps structure vague statements into structured problems
+- [problem framing *(skill)*](.apm/skills/consulting-problem-framing) – helps structure vague statements into structured problems
 - [architecture and operating model review *(skill)*](.apm/skills/consulting-architecture-operating-model-review/) - supports reviews of architecture and op models
 - [executive briefing *(skill)*](.apm/skills/consulting-executive-briefing/) – suggests executive-ready recommendations out of vague inputs, useful in cases where not enough quantitative or qualitative data exists
-- [text humanization *(skill)*](.apm/skills/humanize-text/) – reviews LLM-generated or LLM-assisted texts and replaces typical LLM words and grammatical structures with simpler and _more human_ versions.
+- [text humanization *(skill)*](.apm/skills/humanize-text/) – reviews LLM-generated or LLM-assisted texts and replaces typical LLM words and grammatical structures with simpler and _more human_ versions.
 - [text humanization *(agent)*](.apm/agents/humanize-text.md) – Can be used when reviewing very large text or documents, as the separate sub-agent will use its own context instead of polluting the main one
+- [meeting-notes *(skill)*](.apm/skills/meeting-notes/) - supports with note taking, minute generation, action points, etc
 
 ## Skills
 
@@ -32,6 +33,11 @@ Rewrites text to remove the recognisable patterns of LLM-generated writing — c
 The anti-pattern catalogue draws on practitioner observation, on the English Wikipedia essay [Wikipedia:Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), and on a long-form-writing guide on AI-generated prose tells [available on Google Docs](https://docs.google.com/document/d/1uC9tBgfNZJytzLpg6MGk5mTfgJNbEK-h1hMLncQ5Mho/edit), all adapted for a writing-side use case rather than detection or fiction craft.
 
 Useful on any consulting deliverable drafted or heavily assisted by an LLM: briefs, framings, review output, discovery notes. Ships with a companion `humanize-text` agent for long documents, which applies the same rules in an isolated context and returns only the rewritten text.
+
+### meeting-notes
+Captures meeting notes either live (point-by-point as the meeting happens) or by cleaning up a raw dump of existing notes. Maintains a running structured view grouped under thematic headings that emerge from the conversation, distinguishing facts from the user's own interpretations and anchoring relative dates to absolute ones.
+
+Once the meeting ends, can optionally produce circulation-ready minutes, an action-item table (with owners and due dates flagged when unknown), or a follow-up list for recurring meetings. Default end-state is the structured running view itself — minutes and other artefacts are opt-in, not produced by default. Suitable for 1:1s, counseling sessions, status meetings, workshops, and client calls.
 
 ## Agents
 
